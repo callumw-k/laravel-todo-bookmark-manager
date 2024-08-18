@@ -5,6 +5,12 @@ services:
     environment:
       PHP_OPCACHE_ENABLE: "1"
       AUTORUN_ENABLED: true
+      VITE_REVERB_APP_KEY: '${VITE_REVERB_APP_KEY}'
+      VITE_REVERB_HOST: '${VITE_REVERB_HOST}'
+      VITE_REVERB_PORT: '${VITE_REVERB_PORT}'
+      VITE_REVERB_SCHEME: '${VITE_REVERB_SCHEME}'
+
+
     volumes:
       - "storage_private:/var/www/html/storage/app/private/"
       - "storage_public:/var/www/html/storage/app/public/"
