@@ -43,8 +43,8 @@ COPY resources resources
 COPY storage/framework/views storage/framework/views
 COPY public public
 
-RUN npm ci
-RUN npm  run build
+RUN npm install
+RUN npm run build
 
 
 
