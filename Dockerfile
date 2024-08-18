@@ -29,9 +29,10 @@ RUN composer install --no-dev
 ############################################
 FROM node:lts-alpine AS node
 
+ARG VITE_REVERB_APP_KEY
+
 WORKDIR /app
 
-RUN echo "VITE_REVERB_APP_KEY=${VITE_REVERB_APP_KEY}"
 COPY package*.json vite.config.js tailwind.config.js postcss.config.js ./
 COPY --from=composer app/vendor/laravel/framework/src/Illuminate/Pagination/resources/views ./vendor/laravel/framework/src/Illuminate/Pagination/resources/views
 COPY --from=composer app/vendor/robsontenorio/mary/src/View/Components ./vendor/robsontenorio/mary/src/View/Components
@@ -39,8 +40,10 @@ COPY resources resources
 COPY storage/framework/views storage/framework/views
 COPY public public
 
+RUN echo "VITE_REVERB_APP_KEY=${VITE_REVERB_APP_KEY}"
+
 RUN npm install
-RUN npm run build
+RUN npm VITE_REVERB_APP_KEY=${VITE_REVERB_APP_KEY} run build
 
 
 
