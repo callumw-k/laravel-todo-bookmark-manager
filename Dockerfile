@@ -40,10 +40,8 @@ COPY resources resources
 COPY storage/framework/views storage/framework/views
 COPY public public
 
-RUN echo "VITE_REVERB_APP_KEY=${VITE_REVERB_APP_KEY}"
-
 RUN npm install
-RUN npm VITE_REVERB_APP_KEY=${VITE_REVERB_APP_KEY} run build
+RUN npm  run build
 
 
 
