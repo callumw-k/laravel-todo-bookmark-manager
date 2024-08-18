@@ -12,6 +12,7 @@ services:
       PHP_OPCACHE_ENABLE: 1
       AUTORUN_ENABLED: true
 
+
     volumes:
       - "storage_private:/var/www/html/storage/app/private/"
       - "storage_public:/var/www/html/storage/app/public/"
