@@ -88,6 +88,7 @@ WORKDIR /var/www/html
 COPY --from=node --chown=www-data:www-data /app/public/build ./public/build
 COPY --from=composer --chown=www-data:www-data /app/vendor ./vendor
 #COPY unit-configs/config.json /etc/unit/config.d/config.json
+COPY unit-configs/http.conf /etc/nginx/site-opts.d/http.conf
 
 COPY --chown=www-data:www-data . .
 
