@@ -38,16 +38,7 @@
                 "uri": "/app/*"
             },
             "action": {
-                "proxy": "http://127.0.0.1:9000",
-                "headers": {
-                    "Host": "$host",
-                    "Scheme": "$scheme",
-                    "SERVER_PORT": "$server_port",
-                    "REMOTE_ADDR": "$remote_addr",
-                    "X-Forwarded-For": "$remote_addr",
-                    "Upgrade": "$http_upgrade",
-                    "Connection": "$connection"
-                }
+                "proxy": "http://127.0.0.1:9000"
             }
         },
         {
