@@ -31,13 +31,7 @@ FROM node:lts-alpine AS node
 
 WORKDIR /app
 
-ARG VITE_REVERB_APP_KEY
-ARG VITE_REVERB_HOST
-ARG VITE_REVERB_PORT
-ARG VITE_REVERB_SCHEME
-
 RUN echo "VITE_REVERB_APP_KEY=${VITE_REVERB_APP_KEY}"
-
 COPY package*.json vite.config.js tailwind.config.js postcss.config.js ./
 COPY --from=composer app/vendor/laravel/framework/src/Illuminate/Pagination/resources/views ./vendor/laravel/framework/src/Illuminate/Pagination/resources/views
 COPY --from=composer app/vendor/robsontenorio/mary/src/View/Components ./vendor/robsontenorio/mary/src/View/Components
