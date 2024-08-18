@@ -34,6 +34,8 @@ ARG VITE_REVERB_HOST
 ARG VITE_REVERB_PORT
 ARG VITE_REVERB_SCHEME
 
+
+
 WORKDIR /app
 
 COPY package*.json vite.config.js tailwind.config.js postcss.config.js ./
