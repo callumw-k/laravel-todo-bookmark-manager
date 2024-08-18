@@ -38,10 +38,7 @@
                 "uri": "/app/*"
             },
             "action": {
-                "proxy": {
-                    "uri": "http://127.0.0.1:9000",
-                    "websocket": true
-                },
+                "proxy": "http://127.0.0.1:9000",
                 "headers": {
                     "Host": "$host",
                     "Scheme": "$scheme",
