@@ -32,9 +32,7 @@ FROM node:lts-alpine AS node
 ARG VITE_REVERB_APP_KEY
 ARG VITE_REVERB_HOST
 
-RUN echo "VITE_REVERB_HOST is set to: $VITE_REVERB_HOST"
-
-
+ENV NODE_ENV production
 
 WORKDIR /app
 
@@ -45,7 +43,7 @@ COPY resources resources
 COPY storage/framework/views storage/framework/views
 COPY public public
 
-RUN npm install
+RUN npm ci
 RUN npm  run build
 
 
