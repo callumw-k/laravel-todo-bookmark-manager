@@ -32,7 +32,6 @@ FROM node:lts-alpine AS node
 ARG VITE_REVERB_APP_KEY
 ARG VITE_REVERB_HOST
 
-ENV NODE_ENV production
 
 WORKDIR /app
 
@@ -44,6 +43,9 @@ COPY storage/framework/views storage/framework/views
 COPY public public
 
 RUN npm install
+
+ENV NODE_ENV production
+
 RUN npm run build
 
 
