@@ -2,7 +2,7 @@
 # Base Image
 ############################################
 
-FROM serversideup/php:8.3-unit AS base
+FROM serversideup/php:8.3-fpm-nginx-alpine AS base
 
 USER root
 RUN install-php-extensions memcached
@@ -89,7 +89,7 @@ WORKDIR /var/www/html
 
 COPY --from=node --chown=www-data:www-data /app/public/build ./public/build
 COPY --from=composer --chown=www-data:www-data /app/vendor ./vendor
-COPY unit-configs/config.json /etc/unit/config.d/config.json
+#COPY unit-configs/config.json /etc/unit/config.d/config.json
 
 COPY --chown=www-data:www-data . .
 
