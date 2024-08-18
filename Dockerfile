@@ -30,6 +30,9 @@ RUN composer install --no-dev
 FROM node:lts-alpine AS node
 
 ARG VITE_REVERB_APP_KEY
+ARG VITE_REVERB_HOST
+ARG VITE_REVERB_PORT
+ARG VITE_REVERB_SCHEME
 
 WORKDIR /app
 
