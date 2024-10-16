@@ -2,6 +2,10 @@ services:
   php:
     build:
       context: .
+      args:
+        VITE_REVERB_APP_KEY: ${VITE_REVERB_APP_KEY}
+        VITE_REVERB_HOST: ${VITE_REVERB_HOST}
+        APP_URL: ${APP_URL}
     environment:
       PHP_OPCACHE_ENABLE: 1
       AUTORUN_ENABLED: true
