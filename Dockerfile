@@ -2,7 +2,7 @@
 # Base Image
 ############################################
 
-FROM serversideup/php:8.3-fpm-nginx-alpine AS base
+FROM serversideup/php:8.3-unit AS base
 
 USER root
 RUN install-php-extensions memcached
