@@ -12,6 +12,7 @@
                     {{ __("You're logged in!") }}
                     @livewire('view-bookmarks')
                     @livewire('create-todo')
+                    @livewire('view-todos')
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ use Auth;
 use DateTime;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -21,7 +22,8 @@ class CreateTodo extends Component
     public function save(): void
     {
         $this->validate();
-        Auth::user()->todos()->create($this->pull(['title', 'due_date']));
+        $newTodo = Auth::user()->todos()->create($this->pull(['title', 'due_date']));
+        Redis::publish('update-todo-channel', json_encode(['title' => $newTodo->title]));
     }
 
     public function render(): Application|Factory|\Illuminate\Contracts\View\View|View

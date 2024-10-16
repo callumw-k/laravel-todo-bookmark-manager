@@ -29,9 +29,8 @@ RUN composer install --no-dev
 ############################################
 FROM node:lts-alpine AS node
 
-ARG VITE_REVERB_APP_KEY
-ARG VITE_REVERB_HOST
-
+#ARG VITE_REVERB_APP_KEY
+#ARG VITE_REVERB_HOST
 
 WORKDIR /app
 
@@ -43,13 +42,8 @@ COPY storage/framework/views storage/framework/views
 COPY public public
 
 RUN npm install
-
-ENV NODE_ENV production
-
+#ENV NODE_ENV production
 RUN npm run build
-
-
-
 
 
 ############################################
@@ -88,7 +82,7 @@ WORKDIR /var/www/html
 COPY --from=node --chown=www-data:www-data /app/public/build ./public/build
 COPY --from=composer --chown=www-data:www-data /app/vendor ./vendor
 
-COPY unit-configs/reverb.conf /etc/nginx/server-opts.d/reverb.conf
+COPY custom-nginx-confs/reverb.conf /etc/nginx/server-opts.d/reverb.conf
 
 COPY --chown=www-data:www-data . .
 

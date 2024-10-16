@@ -26,4 +26,5 @@ class BookmarksFactory extends Factory
             'og_image' => fake()->url(),
         ];
     }
+
 }

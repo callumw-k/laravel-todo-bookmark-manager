@@ -33,6 +33,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $casts = ['this is a test', 'this is a second value'];
+
     public function bookmarks(): HasMany
     {
 

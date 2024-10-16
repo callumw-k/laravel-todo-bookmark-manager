@@ -1,10 +1,15 @@
 services:
-  php:
+  bookmark-reverb:
     build:
       context: .
     environment:
       PHP_OPCACHE_ENABLE: 1
       AUTORUN_ENABLED: true
+    command: [ "php", "/var/www/html/artisan", "--port=8000", "reverb:start" ]
+    stop_signal: SIGTERM
+    healthcheck:
+      test: [ "CMD", "healthcheck-reverb" ]
+      start_period: 10s
     volumes:
       - "storage_private:/var/www/html/storage/app/private/"
       - "storage_public:/var/www/html/storage/app/public/"
