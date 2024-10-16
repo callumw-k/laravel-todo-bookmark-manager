@@ -5,6 +5,9 @@ services:
     environment:
       PHP_OPCACHE_ENABLE: 1
       AUTORUN_ENABLED: true
+      LOG_CHANNEL: stderr
+      AUTORUN_LARAVEL_MIGRATION_ISOLATION: false
+      AUTORUN_LARAVEL_MIGRATION: false
     command: [ "php", "/var/www/html/artisan", "--port=8000", "reverb:start" ]
     stop_signal: SIGTERM
     healthcheck:
@@ -17,7 +20,6 @@ services:
       - "storage_logs:/var/www/html/storage/logs"
 
 volumes:
-  certificates:
   storage_private:
   storage_public:
   storage_sessions:
